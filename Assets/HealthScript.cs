@@ -13,13 +13,15 @@ public class HealthScript : MonoBehaviour {
 		StartCoroutine("HpHungry");
 	}
 	IEnumerator HpHungry(){
+		
 		while (hpBar.fillAmount > 0) {
-			
 			yield return new WaitForSeconds(0.25f);
-			player.GetComponent<PlayerLogic> ().curHP -= 0.2f;
+			player.GetComponent<PlayerLogic>().curHP -= 0.2f;
 			hpBar.fillAmount = player.GetComponent<PlayerLogic> ().curHP / 100;
+			Debug.Log("HP -1 from Hungry");
 			yield return null;
 		}
+		Debug.Log("Usloie ne srabotalo");
 	}
 	public void HPChangeLevel(float HPAmount){
 		hpAmount =  HPAmount;

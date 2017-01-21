@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{91F6073B-C9B8-5E02-EA08-3312712FB1A5}</ProjectGuid>
+    <ProjectGuid>{C19E0F48-1A91-EEA2-AD12-7C6F6FE835BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,10 +46,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BloodSpawner.cs" />
      <Compile Include="Assets\BloodValue.cs" />
      <Compile Include="Assets\HealthScript.cs" />
      <Compile Include="Assets\MoveToMouse.cs" />
      <Compile Include="Assets\PlayerLogic.cs" />
+     <Compile Include="Assets\Scripts\CameraFollowScript2.cs" />
+     <Compile Include="Assets\Scripts\GameButtons.cs" />
+     <Compile Include="Assets\Scripts\LeftWing.cs" />
+     <Compile Include="Assets\Scripts\Move.cs" />
+     <Compile Include="Assets\Scripts\Moving.cs" />
+     <Compile Include="Assets\Scripts\ParentWings.cs" />
+     <Compile Include="Assets\Scripts\RightWing.cs" />
+     <Compile Include="Assets\Scripts\ScrollingScript.cs" />
+     <Compile Include="Assets\Scripts\Sync.cs" />
      <Compile Include="Assets\TransformFor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/unity5.6/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
