@@ -6,7 +6,9 @@ public class PlayerLogic : MonoBehaviour {
 	public float curHP;
 	public float maxHP = 100f;
 	public Animator anim;
+	public static bool imDead;
 	void Start(){
+		imDead = false;
 		curHP = 25f;
 		anim.SetTrigger("GameStart");
 	}
@@ -23,6 +25,7 @@ public class PlayerLogic : MonoBehaviour {
 	void KillPlayer(int dieVariation){
 		if (dieVariation == 1) {
 			Debug.Log ("Персонаж умер от удара об стену");
+			imDead = true;
 		}
 	}
 
@@ -30,5 +33,11 @@ public class PlayerLogic : MonoBehaviour {
 		Debug.Log("HP += "+size);
 		//ВОт тут надо исправить
 		GameObject.Find ("HP").GetComponent<HealthScript>().HPChangeLevel(size);
+	}
+	void Update(){
+		if (curHP <= 0 && imDead == false) {
+			imDead = true;
+			Debug.Log("YouDead");
+		}
 	}
 }
