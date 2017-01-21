@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLogic : MonoBehaviour {
 	public float curHP;
 	public float maxHP = 100f;
 	public Animator anim;
 	public static bool imDead;
+
+    public Text txt;
 
 	public SpriteRenderer ass;
 	public Sprite ass1;
@@ -33,7 +36,8 @@ public class PlayerLogic : MonoBehaviour {
 		if (dieVariation == 1) {
 			//Debug.Log ("Персонаж умер от удара об стену");
 			imDead = true;
-		}
+            txt.text = "wall";
+        }
 	}
 
 	void UpgradeLvl(float size){
@@ -44,7 +48,7 @@ public class PlayerLogic : MonoBehaviour {
 	void Update(){
 		if (curHP <= 0 && imDead == false) {
 			imDead = true;
-			Debug.Log("YouDead");
+            txt.text = "low hp";
 		}
 		if (curHP < 33 && ass.sprite != ass1) {
 			ass.sprite = ass1;

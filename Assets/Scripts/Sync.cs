@@ -13,8 +13,6 @@ public class Sync : MonoBehaviour {
         if(Input.touchCount <= 1)
         {
             //StartCoroutine("CheckTouch");
-            if (Input.touchCount <= 1)
-            {
                 timeNoTouch += Time.deltaTime;
                 if (timeNoTouch < 3f)
                 {
@@ -37,21 +35,24 @@ public class Sync : MonoBehaviour {
                 else
                 {
                     PlayerLogic.imDead = true;
+                    //txt.text = "touch 0";
                 }
             }
             else
             {
-                timeNoTouch = 0;
+                timeNoTouch = 0f;
             }
+            txt.text = timeNoTouch.ToString();
         }
-        if (PlayerLogic.imDead)
-        {
-            txt.text = "End";
-        }
-        else
-        {
-            txt.text = "con";
-        }
+        //if (PlayerLogic.imDead)
+        //{
+
+        //    txt.text = "End";
+        //}
+        //else
+        //{
+        //    txt.text = "con";
+        //}
 	}
 
     //IEnumerator CheckTouch()
@@ -82,4 +83,3 @@ public class Sync : MonoBehaviour {
         //    timeNoTouch = 0;
             
     //}
-}
