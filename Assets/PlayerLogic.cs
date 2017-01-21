@@ -7,7 +7,14 @@ public class PlayerLogic : MonoBehaviour {
 	public float maxHP = 100f;
 	public Animator anim;
 	public static bool imDead;
+
+	public SpriteRenderer ass;
+	public Sprite ass1;
+	public Sprite ass2;
+	public Sprite ass3;
+
 	void Start(){
+		ass.sprite = ass1;
 		imDead = false;
 		curHP = 25f;
 		anim.SetTrigger("GameStart");
@@ -38,6 +45,15 @@ public class PlayerLogic : MonoBehaviour {
 		if (curHP <= 0 && imDead == false) {
 			imDead = true;
 			Debug.Log("YouDead");
+		}
+		if (curHP < 33 || ass.sprite != ass1) {
+			ass.sprite = ass1;
+		}
+		if (curHP > 33 || ass.sprite != ass2 || curHP < 70) {
+			ass.sprite = ass2;
+		}
+		if (curHP > 70 || ass.sprite != ass3) {
+			ass.sprite = ass3;
 		}
 	}
 }

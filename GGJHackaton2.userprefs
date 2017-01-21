@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HealthScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerLogic.cs">
     <Files>
       <File FileName="Assets\Scripts\ScrollingScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CameraFollowScript2.cs" Line="1" Column="1" />
-      <File FileName="Assets\BloodSpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayerLogic.cs" Line="40" Column="22" />
+      <File FileName="Assets\BloodSpawner.cs" Line="19" Column="39" />
+      <File FileName="Assets\PlayerLogic.cs" Line="56" Column="22" />
       <File FileName="Assets\Scripts\GameButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets\HealthScript.cs" Line="17" Column="25" />
+      <File FileName="Assets\HealthScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\TetureMovinOffset.cs" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
