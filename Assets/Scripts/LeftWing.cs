@@ -6,7 +6,6 @@ public class LeftWing : ParentWings
     public static float leftDelta = 0;
     public static float leftDeltaT = 0;
     public static float leftRot = 0;
-    public GameObject komarik;
     public Text txt;
     float tim = 0;
     float tt = 0;
@@ -88,11 +87,6 @@ public class LeftWing : ParentWings
         else
         {
             tt = 0;
-        }
-        if(Input.touchCount == 0)
-        {
-            Quaternion toRot = Quaternion.Euler(0, 0, 0);
-            komarik.transform.rotation = Quaternion.Slerp(transform.rotation, toRot, Time.deltaTime * 10f);
         }
         if (!initTouch)
         {

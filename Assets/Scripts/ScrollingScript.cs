@@ -19,6 +19,6 @@ public class ScrollingScript : MonoBehaviour
 		movement *= Time.deltaTime;
 		transform.Translate(movement);
 		*/
-		transform.position = new Vector3 (transform.position.x,player.transform.position.y,0);
+		transform.position = new Vector3 (0f,player.transform.position.y,0);
 	}
 }

@@ -5,6 +5,7 @@ public class Sync : MonoBehaviour {
 
     public GameObject leftW;
     public GameObject rightW;
+    float timeNoTouch = 0;
     public Text txt;
     public static bool Stope = false;
 
@@ -15,7 +16,31 @@ public class Sync : MonoBehaviour {
         //    if(ttime>1)
         //        Stope = true;
         //}
-            
+        if (Input.touchCount == 0)
+        {
+            timeNoTouch += Time.deltaTime;
+            if (timeNoTouch < 3f)
+            {
+                if (gameObject.transform.rotation.eulerAngles.z > 3)
+                {
+                    transform.Rotate(new Vector3(0, 0, 0.25f));
+                }
+                else
+                {
+                    if (gameObject.transform.rotation.eulerAngles.z < -3)
+                    {
+                        transform.Rotate(new Vector3(0, 0, -0.25f));
+                    }
+                    else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
+                }
+            } else
+            {
+                Stope = true;
+            }
+        } else
+        {
+            timeNoTouch = 0;
+        }
         if (Stope)
         {
             txt.text = "End";
