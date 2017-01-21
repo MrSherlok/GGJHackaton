@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Sync : MonoBehaviour {
@@ -9,37 +10,40 @@ public class Sync : MonoBehaviour {
     public Text txt;
 
     void Update () {
-        if (Input.touchCount <= 1)
+        if(Input.touchCount <= 1)
         {
-            timeNoTouch += Time.deltaTime;
-            if (timeNoTouch < 3f)
+            //StartCoroutine("CheckTouch");
+            if (Input.touchCount <= 1)
             {
-                if (Input.touchCount == 0)
+                timeNoTouch += Time.deltaTime;
+                if (timeNoTouch < 3f)
                 {
-                    if (gameObject.transform.rotation.eulerAngles.z > 3)
+                    if (Input.touchCount == 0)
                     {
-                        transform.Rotate(new Vector3(0, 0, 0.25f));
-                    }
-                    else
-                    {
-                        if (gameObject.transform.rotation.eulerAngles.z < -3)
+                        if (gameObject.transform.rotation.eulerAngles.z > 3)
                         {
-                            transform.Rotate(new Vector3(0, 0, -0.25f));
+                            transform.Rotate(new Vector3(0, 0, 0.25f));
                         }
-                        else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
+                        else
+                        {
+                            if (gameObject.transform.rotation.eulerAngles.z < -3)
+                            {
+                                transform.Rotate(new Vector3(0, 0, -0.25f));
+                            }
+                            else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
+                        }
                     }
+                }
+                else
+                {
+                    PlayerLogic.imDead = true;
                 }
             }
             else
             {
-                PlayerLogic.imDead = true;
+                timeNoTouch = 0;
             }
         }
-        else
-        {
-            timeNoTouch = 0;
-        }
-        Debug.Log(timeNoTouch);
         if (PlayerLogic.imDead)
         {
             txt.text = "End";
@@ -49,4 +53,33 @@ public class Sync : MonoBehaviour {
             txt.text = "con";
         }
 	}
+
+    //IEnumerator CheckTouch()
+    //{
+
+        //while (timeNoTouch < 3f)
+        //{
+        //    timeNoTouch++;
+        //    if (Input.touchCount == 0)
+        //    {
+        //        if (gameObject.transform.rotation.eulerAngles.z > 3)
+        //        {
+        //            transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z / 3f));
+        //        }
+        //        else
+        //        {
+        //            if (gameObject.transform.rotation.eulerAngles.z < -3)
+        //            {
+        //                transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z / 3f * -1f));
+        //            }
+        //            else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
+        //        }
+        //        yield return new WaitForSeconds(1f);
+        //        yield return null;
+        //    }
+        //}
+        //    PlayerLogic.imDead = true;
+        //    timeNoTouch = 0;
+            
+    //}
 }
