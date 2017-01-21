@@ -6,7 +6,6 @@ public class BloodSpawner : MonoBehaviour {
 	Transform spawnPos;
 	void Start () {
 		StartCoroutine("SpawnBlood");
-
 	}
 
 	IEnumerator SpawnBlood(){
@@ -17,7 +16,7 @@ public class BloodSpawner : MonoBehaviour {
 			Instantiate(eda);
 			eda.transform.position = new Vector3(Random.Range(-8,9),transform.position.y,0);
 
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(0.5f);
 			Destroy (eda, 4f);
 			yield return null;
 			}}

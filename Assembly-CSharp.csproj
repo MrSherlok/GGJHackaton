@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\RightWing.cs" />
      <Compile Include="Assets\Scripts\ScrollingScript.cs" />
      <Compile Include="Assets\Scripts\Sync.cs" />
+     <Compile Include="Assets\TetureMovinOffset.cs" />
      <Compile Include="Assets\TransformFor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/unity5.6/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
