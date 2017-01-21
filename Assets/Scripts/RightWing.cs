@@ -7,7 +7,6 @@ public class RightWing : ParentWings
     public static float rightDeltaT = 0;
     public static float rightRot = 0;
     public Text txt;
-    float tim = 0;
     void Update()
     {
         if (Input.touchCount > 0)
@@ -40,22 +39,6 @@ public class RightWing : ParentWings
                 }
                 if (moving)
                 {
-                    if (Mathf.Abs(touch.deltaPosition.y) < 0.3f)
-                    {
-                        tim += Time.deltaTime;
-                        if (tim > 1)
-                        {
-                            Sync.Stope = true;
-                        }
-                        else
-                        {
-                            Sync.Stope = false;
-                        }
-                    }
-                    else
-                    {
-                        tim = 0;
-                    }
                     rightDelta = touch.deltaPosition.y;
                     rightDeltaT = touch.deltaTime;
                     rightRot = transform.eulerAngles.z;

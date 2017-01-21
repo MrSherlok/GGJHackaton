@@ -6,7 +6,7 @@ public class GameButtons : MonoBehaviour
 
     public void Reload()
     {
-        Sync.Stope = false;
+        PlayerLogic.imDead = false;
         LeftWing.leftDelta = 0;
         LeftWing.leftDeltaT = 0;
         LeftWing.leftRot = 240;

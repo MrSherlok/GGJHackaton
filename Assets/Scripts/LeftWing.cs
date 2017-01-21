@@ -6,10 +6,7 @@ public class LeftWing : ParentWings
     public static float leftDelta = 0;
     public static float leftDeltaT = 0;
     public static float leftRot = 0;
-    public GameObject komarik;
     public Text txt;
-    float tim = 0;
-    float tt = 0;
     void Update()
     {
         if (Input.touchCount > 0)
@@ -43,22 +40,6 @@ public class LeftWing : ParentWings
                 if (moving)
                 {
                     //txt.text = touch.deltaPosition.ToString();
-                    if (Mathf.Abs(touch.deltaPosition.y) < 0.3f)
-                    {
-                        tim += Time.deltaTime;
-                        if (tim > 1)
-                        {
-                            Sync.Stope = true;
-                        }
-                        else
-                        {
-                            Sync.Stope = false;
-                        }
-                    }
-                    else
-                    {
-                        tim = 0;
-                    }
                     leftDelta = touch.deltaPosition.y;
                     leftDeltaT = touch.deltaTime;
                     leftRot = transform.eulerAngles.z;
@@ -72,27 +53,6 @@ public class LeftWing : ParentWings
                     //}
                 }
             }
-        }
-        if (Input.touchCount == 1)
-        {
-            tt += Time.deltaTime;
-            if (tt > 1)
-            {
-                Sync.Stope = true;
-            }
-            else
-            {
-                Sync.Stope = false;
-            }
-        }
-        else
-        {
-            tt = 0;
-        }
-        if(Input.touchCount == 0)
-        {
-            Quaternion toRot = Quaternion.Euler(0, 0, 0);
-            komarik.transform.rotation = Quaternion.Slerp(transform.rotation, toRot, Time.deltaTime * 10f);
         }
         if (!initTouch)
         {

@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\RightWing.cs" />
     <Compile Include="Assets\Scripts\ScrollingScript.cs" />
     <Compile Include="Assets\Scripts\Sync.cs" />
+    <Compile Include="Assets\TetureMovinOffset.cs" />
     <Compile Include="Assets\TransformFor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

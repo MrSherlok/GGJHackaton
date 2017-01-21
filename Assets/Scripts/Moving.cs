@@ -19,8 +19,11 @@ public class Moving : MonoBehaviour
         }
         else
         {
-            if (speed < 15f)
+            if (speed < (8 * 2f))
+            {
+                //Debug.Log("low delta t+");
                 speed += Time.deltaTime;
+            }
         }
         //if ((LeftWing.leftRot - 160 - RightWing.rightRot > 15) && (LeftWing.leftDeltaT < 0.3 || RightWing.rightDeltaT < 0.3))
         //{
@@ -40,25 +43,35 @@ public class Moving : MonoBehaviour
         }
 
         if (LeftWing.leftRot - RightWing.rightRot < 30 && RightWing.rightRot < 10 && RightWing.rightRot > -10)
-            if (speed < 15f)
+            if (speed < (8 * 2f))
             {
+                //Debug.Log("wing 0 t+");
                 speed += Time.deltaTime;
             }
         else
             {
-                if(LeftWing.leftRot - RightWing.rightRot < 30 && RightWing.rightRot < 190 && RightWing.rightRot > 170)
-                    if (speed > 7f)
+                if (LeftWing.leftRot - RightWing.rightRot < 30 && RightWing.rightRot < 190 && RightWing.rightRot > 170)
+                    if (speed > (8 * 0.8f))
+                    {
+                        //Debug.Log("wing 180 t-");
                         speed -= Time.deltaTime;
+                    }
             }
         if (LeftWing.leftDeltaT > 0.3 || RightWing.rightDeltaT > 0.3)
         {
-            if (speed < 15f)
-                speed += Time.deltaTime/10;
+            if (speed < (8 * 2f))
+            {
+                //Debug.Log("no move more 0.3s t+");
+                speed += Time.deltaTime / 10;
+            }
         }
         if ((LeftWing.leftRot - RightWing.rightRot < 160 && LeftWing.leftRot - RightWing.rightRot > 200))
-            if (speed > 7f)
+            if (speed > (8 * 0.8f))
+            {
+                //Debug.Log("Rot more/less 180 t-");
                 speed -= Time.deltaTime;
-        if (!Sync.Stope)
+            }
+        if (!PlayerLogic.imDead)
             gameObject.transform.Translate(Vector3.up * speed*Time.deltaTime);
     }
 }
