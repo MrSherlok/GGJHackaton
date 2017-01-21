@@ -4,11 +4,12 @@ using UnityEngine.UI;
 public class RightWing : ParentWings
 {
     public static float rightDelta = 0;
+    public static float rightDeltaT = 0;
+    public static float rightRot = 0;
     public Text txt;
-    float tim=0;
-    float tt=0;
+    float tim = 0;
     void Update()
-    { 
+    {
         if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).position.x >= (Screen.width - (Screen.width / 3)))
@@ -56,13 +57,16 @@ public class RightWing : ParentWings
                         tim = 0;
                     }
                     rightDelta = touch.deltaPosition.y;
+                    rightDeltaT = touch.deltaTime;
+                    rightRot = transform.eulerAngles.z;
+                    txt.text = rightRot.ToString();
                     deltaZ = (prevPos.y - touch.position.y) * -1f;
-                        prevPos = touch.position;
+                    prevPos = touch.position;
                     //if (transform.eulerAngles.z + deltaZ >= 220 && transform.eulerAngles.z + deltaZ <= 325)
                     //{
-                        transform.Rotate(new Vector3(0, 0, deltaZ / 2.5f));
+                    transform.Rotate(new Vector3(0, 0, deltaZ / 2.5f));
                     //}
-                    
+
                 }
             }
         }
@@ -70,8 +74,9 @@ public class RightWing : ParentWings
         {
             //deltaZ = (transform.position.y + 90) * -1;
             //transform.Rotate(new Vector3(0, 0, deltaZ / 3));
-            Quaternion target = Quaternion.Euler(0, 0, -90);
+            Quaternion target = Quaternion.Euler(0, 0, 90);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 10f);
         }
     }
 }
+

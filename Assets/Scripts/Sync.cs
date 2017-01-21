@@ -5,7 +5,6 @@ public class Sync : MonoBehaviour {
 
     public GameObject leftW;
     public GameObject rightW;
-    float ttime = 0;
     public Text txt;
     public static bool Stope = false;
 
