@@ -53,7 +53,7 @@ public class Moving : MonoBehaviour
         if (LeftWing.leftDeltaT > 0.3 || RightWing.rightDeltaT > 0.3)
         {
             if (speed < 20f)
-                speed += Time.deltaTime;
+                speed += Time.deltaTime/10;
         }
         if ((LeftWing.leftRot - RightWing.rightRot < 160 && LeftWing.leftRot - RightWing.rightRot > 200))
             if (speed > 7f)
