@@ -2,7 +2,7 @@
 
 public class Moving : MonoBehaviour
 {
-   public float speed = 10f;
+   public float speed = 8f;
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -19,7 +19,7 @@ public class Moving : MonoBehaviour
         }
         else
         {
-            if (speed < 20f)
+            if (speed < 15f)
                 speed += Time.deltaTime;
         }
         //if ((LeftWing.leftRot - 160 - RightWing.rightRot > 15) && (LeftWing.leftDeltaT < 0.3 || RightWing.rightDeltaT < 0.3))
@@ -40,7 +40,7 @@ public class Moving : MonoBehaviour
         }
 
         if (LeftWing.leftRot - RightWing.rightRot < 30 && RightWing.rightRot < 10 && RightWing.rightRot > -10)
-            if (speed < 20f)
+            if (speed < 15f)
             {
                 speed += Time.deltaTime;
             }
@@ -52,8 +52,8 @@ public class Moving : MonoBehaviour
             }
         if (LeftWing.leftDeltaT > 0.3 || RightWing.rightDeltaT > 0.3)
         {
-            if (speed < 20f)
-                speed += Time.deltaTime;
+            if (speed < 15f)
+                speed += Time.deltaTime/10;
         }
         if ((LeftWing.leftRot - RightWing.rightRot < 160 && LeftWing.leftRot - RightWing.rightRot > 200))
             if (speed > 7f)
