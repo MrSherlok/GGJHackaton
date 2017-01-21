@@ -18,17 +18,17 @@ public class HealthScript : MonoBehaviour {
 			yield return new WaitForSeconds(0.25f);
 			player.GetComponent<PlayerLogic>().curHP -= 0.2f;
 			hpBar.fillAmount = player.GetComponent<PlayerLogic> ().curHP / 100;
-			Debug.Log("HP -1 from Hungry");
+			//Debug.Log("HP -1 from Hungry");
 			yield return null;
 		}
-		Debug.Log("Usloie ne srabotalo");
+		//Debug.Log("Usloie ne srabotalo");
 	}
 	public void HPChangeLevel(float HPAmount){
 		hpAmount =  HPAmount;
 		StartCoroutine("HPChange");
 	}
 	public IEnumerator HPChange(){
-		Debug.Log("+++++hp");
+		//Debug.Log("+++++hp");
 		for (int i = 0; i < hpAmount; i++) {
 			yield return new WaitForSeconds (0.1f);
 			player.GetComponent<PlayerLogic> ().curHP++ ;

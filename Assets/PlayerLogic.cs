@@ -31,7 +31,7 @@ public class PlayerLogic : MonoBehaviour {
 	}
 	void KillPlayer(int dieVariation){
 		if (dieVariation == 1) {
-			Debug.Log ("Персонаж умер от удара об стену");
+			//Debug.Log ("Персонаж умер от удара об стену");
 			imDead = true;
 		}
 	}
@@ -46,13 +46,13 @@ public class PlayerLogic : MonoBehaviour {
 			imDead = true;
 			Debug.Log("YouDead");
 		}
-		if (curHP < 33 || ass.sprite != ass1) {
+		if (curHP < 33 && ass.sprite != ass1) {
 			ass.sprite = ass1;
 		}
-		if (curHP > 33 || ass.sprite != ass2 || curHP < 70) {
+		if (curHP > 33 && ass.sprite != ass2 && curHP < 70) {
 			ass.sprite = ass2;
 		}
-		if (curHP > 70 || ass.sprite != ass3) {
+		if (curHP > 70 && ass.sprite != ass3) {
 			ass.sprite = ass3;
 		}
 	}

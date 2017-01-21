@@ -7,41 +7,40 @@ public class Sync : MonoBehaviour {
     public GameObject rightW;
     float timeNoTouch = 0;
     public Text txt;
-    public static bool Stope = false;
 
     void Update () {
-        //if ((leftW.transform.eulerAngles.z - (rightW.transform.eulerAngles.z * -1)) > 20)
-        //{
-        //    ttime += Time.deltaTime;
-        //    if(ttime>1)
-        //        Stope = true;
-        //}
-        if (Input.touchCount == 0)
+        if (Input.touchCount <= 1)
         {
             timeNoTouch += Time.deltaTime;
             if (timeNoTouch < 3f)
             {
-                if (gameObject.transform.rotation.eulerAngles.z > 3)
+                if (Input.touchCount == 0)
                 {
-                    transform.Rotate(new Vector3(0, 0, 0.25f));
-                }
-                else
-                {
-                    if (gameObject.transform.rotation.eulerAngles.z < -3)
+                    if (gameObject.transform.rotation.eulerAngles.z > 3)
                     {
-                        transform.Rotate(new Vector3(0, 0, -0.25f));
+                        transform.Rotate(new Vector3(0, 0, 0.25f));
                     }
-                    else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
+                    else
+                    {
+                        if (gameObject.transform.rotation.eulerAngles.z < -3)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -0.25f));
+                        }
+                        else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
+                    }
                 }
-            } else
-            {
-                Stope = true;
             }
-        } else
+            else
+            {
+                PlayerLogic.imDead = true;
+            }
+        }
+        else
         {
             timeNoTouch = 0;
         }
-        if (Stope)
+        Debug.Log(timeNoTouch);
+        if (PlayerLogic.imDead)
         {
             txt.text = "End";
         }
