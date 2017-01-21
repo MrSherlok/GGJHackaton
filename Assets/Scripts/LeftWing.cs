@@ -4,9 +4,11 @@ using UnityEngine.UI;
 public class LeftWing : ParentWings
 {
     public static float leftDelta = 0;
+    public static float leftDeltaT = 0;
+    public static float leftRot = 0;
     public Text txt;
-    float tim=0;
-    float tt=0;
+    float tim = 0;
+    float tt = 0;
     void Update()
     {
         if (Input.touchCount > 0)
@@ -46,7 +48,8 @@ public class LeftWing : ParentWings
                         if (tim > 1)
                         {
                             Sync.Stope = true;
-                        } else
+                        }
+                        else
                         {
                             Sync.Stope = false;
                         }
@@ -56,11 +59,15 @@ public class LeftWing : ParentWings
                         tim = 0;
                     }
                     leftDelta = touch.deltaPosition.y;
-                        deltaZ = (prevPos.y - touch.position.y);
-                        prevPos = touch.position;
+                    leftDeltaT = touch.deltaTime;
+                    leftRot = transform.eulerAngles.z;
+                    txt.text = leftRot.ToString();
+
+                    deltaZ = (prevPos.y - touch.position.y);
+                    prevPos = touch.position;
                     //if (transform.eulerAngles.z+deltaZ >= 60 && transform.eulerAngles.z + deltaZ <= 160)
                     //{
-                        transform.Rotate(new Vector3(0, 0, deltaZ / 2.5f));
+                    transform.Rotate(new Vector3(0, 0, deltaZ / 2.5f));
                     //}
                 }
             }
@@ -85,8 +92,8 @@ public class LeftWing : ParentWings
         {
             //deltaZ = (transform.position.y-90)*-1;
             //transform.Rotate(new Vector3(0, 0, deltaZ / 3));
-            Quaternion target = Quaternion.Euler(0, 0, 90);
+            Quaternion target = Quaternion.Euler(0, 0, -90);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 10f);
         }
-        }
+    }
 }
