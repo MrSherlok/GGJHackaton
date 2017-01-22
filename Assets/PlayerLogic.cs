@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerLogic : MonoBehaviour {
 	public float curHP;
 	public float maxHP = 100f;
-	public Animator anim;
+	public Animator anim;public Animator animScreen;
 	public static bool imDead;
 
     public Text txt;
@@ -15,6 +15,13 @@ public class PlayerLogic : MonoBehaviour {
 	public Sprite ass1;
 	public Sprite ass2;
 	public Sprite ass3;
+
+	//UI elements
+	public Image hpBar;
+	public Image hpBarHolder;
+	public Image returnButton;
+	public GameObject lose;
+	public GameObject waves; 
 
 	void Start(){
 		ass.sprite = ass1;
@@ -32,12 +39,21 @@ public class PlayerLogic : MonoBehaviour {
 			col.gameObject.GetComponent<BloodValue>().DestroyObject ();
 		}
 	}
-	void KillPlayer(int dieVariation){
+	public void KillPlayer(int dieVariation){
 		if (dieVariation == 1) {
-			//Debug.Log ("Персонаж умер от удара об стену");
+			Debug.Log ("Персонаж умер от удара об стену");
 			imDead = true;
-            txt.text = "wall";
+//            txt.text = "wall";
+			anim.SetTrigger("Die1");
         }
+
+		if (dieVariation == 2) {
+			imDead = true;
+			Debug.Log ("Персонаж умер от бездействия");
+			anim.SetTrigger("Die2");
+		}
+		HideScreen ();
+
 	}
 
 	void UpgradeLvl(float size){
@@ -48,7 +64,9 @@ public class PlayerLogic : MonoBehaviour {
 	void Update(){
 		if (curHP <= 0 && imDead == false) {
 			imDead = true;
-            txt.text = "low hp";
+
+			HideScreen();
+            //txt.text = "low hp";
 		}
 		if (curHP < 33 && ass.sprite != ass1) {
 			ass.sprite = ass1;
@@ -59,5 +77,14 @@ public class PlayerLogic : MonoBehaviour {
 		if (curHP > 70 && ass.sprite != ass3) {
 			ass.sprite = ass3;
 		}
+	}
+	void HideScreen(){
+		lose.SetActive (true);
+		hpBar.enabled = false;
+		hpBarHolder.enabled = false;
+		returnButton.enabled = false;
+		Debug.Log ("YouDie");
+		animScreen.SetTrigger("CloseDS");
+		waves.SetActive(false);
 	}
 }

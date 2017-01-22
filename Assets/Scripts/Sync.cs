@@ -30,6 +30,7 @@ public class Sync : MonoBehaviour {
                 else
                 {
                     PlayerLogic.imDead = true;
+				GameObject.Find("Komarik").GetComponent<PlayerLogic>().KillPlayer(2);
                     //txt.text = "touch 0";
                 }
             }
