@@ -6,7 +6,7 @@ public class Sync : MonoBehaviour {
 
     public GameObject leftW;
     public GameObject rightW;
-    float timeNoTouch = 0;
+    float timeNoTouch = -5f;
     public Text txt;
 
     void Update () {
@@ -18,18 +18,13 @@ public class Sync : MonoBehaviour {
                 {
                     if (Input.touchCount == 0)
                     {
-                        if (gameObject.transform.rotation.eulerAngles.z > 3)
+                        if (gameObject.transform.rotation.eulerAngles.z != 0 || gameObject.transform.rotation.eulerAngles.z != 360)
                         {
-                            transform.Rotate(new Vector3(0, 0, 0.25f));
-                        }
-                        else
-                        {
-                            if (gameObject.transform.rotation.eulerAngles.z < -3)
-                            {
-                                transform.Rotate(new Vector3(0, 0, -0.25f));
-                            }
-                            else transform.Rotate(new Vector3(0, 0, gameObject.transform.rotation.eulerAngles.z * -1));
-                        }
+                        //transform.Rotate(new Vector3(0, 0, -1f));
+
+                        Quaternion target = Quaternion.Euler(0, 0, 0);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 1f);
+                    }
                     }
                 }
                 else

@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\BloodSpawner.cs" />
     <Compile Include="Assets\BloodValue.cs" />
+    <Compile Include="Assets\EnemySpawner.cs" />
     <Compile Include="Assets\HealthScript.cs" />
     <Compile Include="Assets\MoveToMouse.cs" />
     <Compile Include="Assets\PlayerLogic.cs" />
