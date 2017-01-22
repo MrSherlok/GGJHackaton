@@ -11,7 +11,7 @@ public class KorovkaSpawn : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", Random.Range(12f,20f), Random.Range(3f,10f));
+        InvokeRepeating("SpawnEnemy", Random.Range(12f,20f), Random.Range(12f,20f));
     }
 
     void SpawnEnemy()

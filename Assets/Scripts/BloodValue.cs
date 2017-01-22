@@ -4,17 +4,17 @@ using UnityEngine;
 public class BloodValue : MonoBehaviour {
 
 	public float size;
-	private ParticleSystem.EmissionModule partsFX;
+	//private ParticleSystem.EmissionModule partsFX;
 
 	void Start () {	
-		partsFX = gameObject.GetComponent<ParticleSystem> ().emission;
+		//partsFX = gameObject.GetComponent<ParticleSystem> ().emission;
 		size = Random.Range(0.5f,2.5f);
 		gameObject.transform.localScale = new Vector3 (size, size,1);
         StartCoroutine("AlphaPlus");
     }
 
 	public void DestroyObject(){
-        partsFX.enabled = false;
+        //partsFX.enabled = false;
         Destroy(gameObject);
 	}
 

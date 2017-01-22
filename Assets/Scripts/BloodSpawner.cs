@@ -18,7 +18,7 @@ public class BloodSpawner : MonoBehaviour
         {
             ttime = 0f;
             //Debug.Log("ISpawn");
-            GameObject eda = Instantiate(Resources.Load("eda", typeof(GameObject))) as GameObject;
+            GameObject eda = Instantiate(Resources.Load("eda1", typeof(GameObject))) as GameObject;
 
             eda.transform.position = new Vector3(Random.Range(-7, 7), transform.position.y, 0);
         }

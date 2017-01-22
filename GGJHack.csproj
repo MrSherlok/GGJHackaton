@@ -86,12 +86,14 @@
     <Compile Include="Assets\Scripts\HealthScript.cs" />
     <Compile Include="Assets\Scripts\KorovkaSpawn.cs" />
     <Compile Include="Assets\Scripts\LeftWing.cs" />
+    <Compile Include="Assets\Scripts\Magnet.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\MoveToMouse.cs" />
     <Compile Include="Assets\Scripts\Moving.cs" />
     <Compile Include="Assets\Scripts\ParentWings.cs" />
     <Compile Include="Assets\Scripts\PlayerLogic.cs" />
     <Compile Include="Assets\Scripts\RightWing.cs" />
+    <Compile Include="Assets\Scripts\Running.cs" />
     <Compile Include="Assets\Scripts\ScrollingScript.cs" />
     <Compile Include="Assets\Scripts\Sync.cs" />
     <Compile Include="Assets\Scripts\TetureMovinOffset.cs" />

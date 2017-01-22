@@ -46,27 +46,24 @@ public class Moving : MonoBehaviour
                 transform.Rotate(new Vector3(0, 0, -0.7f));
         }
 
-        if (RightWing.rightRot + LeftWing.leftRot < 30f && RightWing.rightRot < 20f && RightWing.rightRot > -20f)
+        if ((RightWing.rightRot + LeftWing.leftRot < 30f || RightWing.rightRot + LeftWing.leftRot > 340f) && RightWing.rightRot < 20f && RightWing.rightRot > -20f)
             if (speed < (8 * 2f))
             {
                 Debug.Log("wing 0 t+");
-                speed += Time.deltaTime;
+                speed += Time.deltaTime*2f;
             }
-        else
+        if ((LeftWing.leftRot + RightWing.rightRot < 30f || (LeftWing.leftRot + RightWing.rightRot > 330f)) && RightWing.rightRot < 200f && RightWing.rightRot > 160f)
+            if (speed > (8 * 0.8f))
             {
-                if ((LeftWing.leftRot + RightWing.rightRot < 30f || (LeftWing.leftRot + RightWing.rightRot > 330f)) && RightWing.rightRot < 200f && RightWing.rightRot > 160f)
-                    if (speed > (8 * 0.8f))
-                    {
-                        Debug.Log("wing 180 t-");
-                        speed -= Time.deltaTime;
-                    }
+                Debug.Log("wing 180 t-");
+                speed -= Time.deltaTime*2f;
             }
         if (LeftWing.leftDeltaT > 0.3 || RightWing.rightDeltaT > 0.3)
         {
             if (speed < (8 * 2f))
             {
                 Debug.Log("no move more 0.3s t+");
-                speed += Time.deltaTime / 10;
+                speed += Time.deltaTime;
             }
         }
         if ((LeftWing.leftRot - RightWing.rightRot < 160 && LeftWing.leftRot - RightWing.rightRot > 200))
