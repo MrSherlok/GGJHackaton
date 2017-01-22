@@ -7,8 +7,12 @@ public class Sync : MonoBehaviour {
     public GameObject leftW;
     public GameObject rightW;
     float timeNoTouch = -5f;
-    public Text txt;
-    public Text txt1;
+    public Image txt;
+    public Sprite three;
+    public Sprite two;
+    public Sprite one;
+    public Sprite none;
+
 
     void Update () {
         if(Input.touchCount <= 1)
@@ -19,7 +23,22 @@ public class Sync : MonoBehaviour {
                 {
                     if (Input.touchCount == 0)
                     {
-                    txt.text = ((int)timeNoTouch).ToString();
+                    if(timeNoTouch >= 1 && timeNoTouch <= 2)
+                    {
+                        txt.sprite = one;
+                    }
+                    if (timeNoTouch >= 2 && timeNoTouch <= 3)
+                    {
+                        txt.sprite = two;
+                    }
+                    if (timeNoTouch >= 3 && timeNoTouch <= 4)
+                    {
+                        txt.sprite = three;
+                    }
+                    if (timeNoTouch < 1)
+                    {
+                        txt.sprite = none;
+                    }
                     if (gameObject.transform.rotation.eulerAngles.z != 0 || gameObject.transform.rotation.eulerAngles.z != 360)
                         {
                         //transform.Rotate(new Vector3(0, 0, -1f));
@@ -34,7 +53,6 @@ public class Sync : MonoBehaviour {
                     PlayerLogic.imDead = true;
 				GameObject.Find("Komarik").GetComponent<PlayerLogic>().KillPlayer(2);
                 }
-            }
             }
             else
             {

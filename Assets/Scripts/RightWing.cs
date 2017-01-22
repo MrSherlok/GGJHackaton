@@ -6,7 +6,7 @@ public class RightWing : ParentWings
     public static float rightDelta = 0;
     public static float rightDeltaT = 0;
     public static float rightRot = 0;
-    public Text txt;
+    //public Text txt;
     void Update()
     {
         if (Input.touchCount > 0)
@@ -42,7 +42,7 @@ public class RightWing : ParentWings
                     rightDelta = touch.deltaPosition.y;
                     rightDeltaT = touch.deltaTime;
                     rightRot = transform.eulerAngles.z;
-                    txt.text = rightRot.ToString();
+                    //txt.text = rightRot.ToString();
                     deltaZ = (prevPos.y - touch.position.y) * -1f;
                     prevPos = touch.position;
                     //if (transform.eulerAngles.z + deltaZ >= 220 && transform.eulerAngles.z + deltaZ <= 325)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-	float resistenceSpeed = 1;
+	//float resistenceSpeed = 1;
 	Transform spawnPos;
 	void Start () {
 		

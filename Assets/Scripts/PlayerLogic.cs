@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour {
 	public float curHP;
@@ -41,7 +42,7 @@ public class PlayerLogic : MonoBehaviour {
 	}
 	public void KillPlayer(int dieVariation){
 		if (dieVariation == 1) {
-			Debug.Log ("Персонаж умер от удара об стену");
+			//Debug.Log ("Персонаж умер от удара об стену");
 			imDead = true;
 //            txt.text = "wall";
 			anim.SetTrigger("Die1");
@@ -49,7 +50,7 @@ public class PlayerLogic : MonoBehaviour {
 
 		if (dieVariation == 2) {
 			imDead = true;
-			Debug.Log ("Персонаж умер от бездействия");
+			//Debug.Log ("Персонаж умер от бездействия");
 			anim.SetTrigger("Die2");
 		}
 		HideScreen ();
@@ -83,8 +84,12 @@ public class PlayerLogic : MonoBehaviour {
 		hpBar.enabled = false;
 		hpBarHolder.enabled = false;
 		returnButton.enabled = false;
-		Debug.Log ("YouDie");
 		animScreen.SetTrigger("CloseDS");
 		waves.SetActive(false);
+        Invoke("LoseScene",1f);
 	}
+    void LoseScene()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

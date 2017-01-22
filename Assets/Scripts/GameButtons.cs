@@ -16,4 +16,5 @@ public class GameButtons : MonoBehaviour
         RightWing.rightRot = 90;
         SceneManager.LoadScene(0);
     }
+
 }
