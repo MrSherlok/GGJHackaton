@@ -19,7 +19,7 @@ public class BloodValue : MonoBehaviour {
 	}
 
 	IEnumerator AlphaPlus(){  
-			yield return new WaitForSeconds(1.5f);	
+			yield return new WaitForSeconds(3f);	
             DestroyObject();
 	}
 }

@@ -8,36 +8,37 @@ public class Sync : MonoBehaviour {
     public GameObject rightW;
     float timeNoTouch = -5f;
     public Text txt;
+    public Text txt1;
 
     void Update () {
         if(Input.touchCount <= 1)
         {
             //StartCoroutine("CheckTouch");
                 timeNoTouch += Time.deltaTime;
-                if (timeNoTouch < 3f)
+                if (timeNoTouch < 4f)
                 {
                     if (Input.touchCount == 0)
                     {
-                        if (gameObject.transform.rotation.eulerAngles.z != 0 || gameObject.transform.rotation.eulerAngles.z != 360)
+                    txt.text = ((int)timeNoTouch).ToString();
+                    if (gameObject.transform.rotation.eulerAngles.z != 0 || gameObject.transform.rotation.eulerAngles.z != 360)
                         {
                         //transform.Rotate(new Vector3(0, 0, -1f));
 
                         Quaternion target = Quaternion.Euler(0, 0, 0);
-                        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 1f);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 1.5f);
                     }
                     }
                 }
                 else
                 {
                     PlayerLogic.imDead = true;
-                    //txt.text = "touch 0";
-                }
+                txt1.text = "touch 0";
+            }
             }
             else
             {
                 timeNoTouch = 0f;
             }
-            txt.text = timeNoTouch.ToString();
         }
         //if (PlayerLogic.imDead)
         //{
