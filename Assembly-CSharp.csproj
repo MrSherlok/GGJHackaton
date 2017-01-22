@@ -50,6 +50,7 @@
      <Compile Include="Assets\BloodValue.cs" />
      <Compile Include="Assets\EnemySpawner.cs" />
      <Compile Include="Assets\HealthScript.cs" />
+     <Compile Include="Assets\KorovkaSpawn.cs" />
      <Compile Include="Assets\MoveToMouse.cs" />
      <Compile Include="Assets\PlayerLogic.cs" />
      <Compile Include="Assets\Scripts\CameraFollowScript2.cs" />
