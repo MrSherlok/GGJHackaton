@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Moving : MonoBehaviour
 {
-   public float speed = 8f;
+   public static float speed = 8f;
+    public Text txt;
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (Mathf.Abs(LeftWing.leftDelta) - Mathf.Abs(RightWing.rightDelta) > 0.3f)
         {
             if (LeftWing.leftDelta > RightWing.rightDelta && (LeftWing.leftDeltaT < 0.3 || RightWing.rightDeltaT < 0.3))
@@ -19,11 +22,11 @@ public class Moving : MonoBehaviour
         }
         else
         {
-            if (speed < (8 * 2f))
-            {
-                //Debug.Log("low delta t+");
-                speed += Time.deltaTime;
-            }
+            //if (speed < (8 * 2f))
+            //{
+            //    Debug.Log("low delta t+");
+            //    speed += Time.deltaTime;
+            //}
         }
         //if ((LeftWing.leftRot - 160 - RightWing.rightRot > 15) && (LeftWing.leftDeltaT < 0.3 || RightWing.rightDeltaT < 0.3))
         //{
@@ -39,21 +42,22 @@ public class Moving : MonoBehaviour
         {
             if(RightWing.rightRot > 90)
             transform.Rotate(new Vector3(0, 0, 0.7f));
-            else transform.Rotate(new Vector3(0, 0, -0.7f));
+            else
+                transform.Rotate(new Vector3(0, 0, -0.7f));
         }
 
-        if (LeftWing.leftRot - RightWing.rightRot < 30 && RightWing.rightRot < 10 && RightWing.rightRot > -10)
+        if (RightWing.rightRot + LeftWing.leftRot < 30f && RightWing.rightRot < 20f && RightWing.rightRot > -20f)
             if (speed < (8 * 2f))
             {
-                //Debug.Log("wing 0 t+");
+                Debug.Log("wing 0 t+");
                 speed += Time.deltaTime;
             }
         else
             {
-                if (LeftWing.leftRot - RightWing.rightRot < 30 && RightWing.rightRot < 190 && RightWing.rightRot > 170)
+                if ((LeftWing.leftRot + RightWing.rightRot < 30f || (LeftWing.leftRot + RightWing.rightRot > 330f)) && RightWing.rightRot < 200f && RightWing.rightRot > 160f)
                     if (speed > (8 * 0.8f))
                     {
-                        //Debug.Log("wing 180 t-");
+                        Debug.Log("wing 180 t-");
                         speed -= Time.deltaTime;
                     }
             }
@@ -61,16 +65,17 @@ public class Moving : MonoBehaviour
         {
             if (speed < (8 * 2f))
             {
-                //Debug.Log("no move more 0.3s t+");
+                Debug.Log("no move more 0.3s t+");
                 speed += Time.deltaTime / 10;
             }
         }
         if ((LeftWing.leftRot - RightWing.rightRot < 160 && LeftWing.leftRot - RightWing.rightRot > 200))
             if (speed > (8 * 0.8f))
             {
-                //Debug.Log("Rot more/less 180 t-");
+                Debug.Log("Rot more/less 180 t-");
                 speed -= Time.deltaTime;
             }
+        txt.text = ((int)speed).ToString();
         if (!PlayerLogic.imDead)
             gameObject.transform.Translate(Vector3.up * speed*Time.deltaTime);
     }

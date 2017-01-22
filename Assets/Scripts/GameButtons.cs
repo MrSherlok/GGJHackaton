@@ -7,6 +7,7 @@ public class GameButtons : MonoBehaviour
     public void Reload()
     {
         PlayerLogic.imDead = false;
+        Moving.speed = 8f;
         LeftWing.leftDelta = 0;
         LeftWing.leftDeltaT = 0;
         LeftWing.leftRot = 240;
