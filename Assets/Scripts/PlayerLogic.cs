@@ -86,10 +86,10 @@ public class PlayerLogic : MonoBehaviour {
 		returnButton.enabled = false;
 		animScreen.SetTrigger("CloseDS");
 		waves.SetActive(false);
-        Invoke("LoseScene",1f);
+        Invoke("LoseScene",6f);
 	}
     void LoseScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

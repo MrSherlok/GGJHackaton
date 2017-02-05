@@ -14,7 +14,7 @@ public class GameButtons : MonoBehaviour
         RightWing.rightDelta = 0;
         RightWing.rightDeltaT = 0;
         RightWing.rightRot = 90;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("scene4");
     }
 
 }

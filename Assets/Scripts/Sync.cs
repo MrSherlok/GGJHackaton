@@ -15,45 +15,38 @@ public class Sync : MonoBehaviour {
 
 
     void Update () {
-        if(Input.touchCount <= 1)
-        {
-            //StartCoroutine("CheckTouch");
-                timeNoTouch += Time.deltaTime;
-                if (timeNoTouch < 4f)
-                {
-                    if (Input.touchCount == 0)
-                    {
-                    if(timeNoTouch >= 1 && timeNoTouch <= 2)
-                    {
-                        txt.sprite = one;
-                    }
-                    if (timeNoTouch >= 2 && timeNoTouch <= 3)
-                    {
-                        txt.sprite = two;
-                    }
-                    if (timeNoTouch >= 3 && timeNoTouch <= 4)
-                    {
-                        txt.sprite = three;
-                    }
-                    if (timeNoTouch < 1)
-                    {
-                        txt.sprite = none;
-                    }
-                    if (gameObject.transform.rotation.eulerAngles.z != 0 || gameObject.transform.rotation.eulerAngles.z != 360)
-                        {
-                        //transform.Rotate(new Vector3(0, 0, -1f));
+		if (Input.touchCount <= 1) {
+			//StartCoroutine("CheckTouch");
+			timeNoTouch += Time.deltaTime;
+			if (!PlayerLogic.imDead) {
+				if (timeNoTouch < 4f) {
+					if (Input.touchCount == 0) {
+						if (timeNoTouch >= 1 && timeNoTouch <= 2) {
+							txt.sprite = three;
+						}
+						if (timeNoTouch >= 2 && timeNoTouch <= 3) {
+							txt.sprite = two;
+						}
+						if (timeNoTouch >= 3 && timeNoTouch <= 4) {
+							txt.sprite = one;
+						}
+						if (timeNoTouch < 1) {
+							txt.sprite = none;
+						}
+						if (gameObject.transform.rotation.eulerAngles.z != 0 || gameObject.transform.rotation.eulerAngles.z != 360) {
+							//transform.Rotate(new Vector3(0, 0, -1f));
 
-                        Quaternion target = Quaternion.Euler(0, 0, 0);
-                        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 1.5f);
-                    }
-                    }
-                }
-                else
-                {
-                    PlayerLogic.imDead = true;
-				GameObject.Find("Komarik").GetComponent<PlayerLogic>().KillPlayer(2);
-                }
-            }
+							Quaternion target = Quaternion.Euler (0, 0, 0);
+							transform.rotation = Quaternion.Slerp (transform.rotation, target, Time.deltaTime * 1.5f);
+						}
+					}
+				} else {
+					PlayerLogic.imDead = true;
+					txt.sprite = none;
+					GameObject.Find ("Komarik").GetComponent<PlayerLogic> ().KillPlayer (2);
+				}
+			}
+		}
             else
             {
                 timeNoTouch = 0f;
